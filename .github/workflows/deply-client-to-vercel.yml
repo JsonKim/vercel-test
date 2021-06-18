@@ -1,5 +1,8 @@
 name: deploy client to vercel
-on: [pull_request]
+on: 
+  pull_request:
+    paths:
+      - "client/**/*"
 jobs:
   deploy:
     runs-on: ubuntu-latest
