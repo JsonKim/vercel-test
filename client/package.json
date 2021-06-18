@@ -1,0 +1,39 @@
+{
+  "name": "rescript-nextjs-template",
+  "version": "1.0.0",
+  "author": "Patrick Ecker <ryyppy@users.noreply.github.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "next": "^11.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "repository": "https://github.com/ryyppy/rescript-nextjs-template",
+  "scripts": {
+    "dev": "next",
+    "debug": "NODE_OPTIONS='--inspect' next",
+    "build": "yarn css:build && yarn res:build && next build",
+    "now-build": "yarn css:build && yarn res:build && next build",
+    "export": "next export",
+    "start": "next start -p $PORT",
+    "res:build": "rescript",
+    "res:clean": "rescript clean",
+    "res:start": "rescript build -w",
+    "css:build": "tailwindcss -i ./styles/main.css -o styles/.tailwind.dev.css --minify",
+    "css:start": "tailwindcss -i ./styles/main.css -o styles/.tailwind.dev.css --watch",
+    "dev:watch": "yarn css:build && concurrently yarn:css:start yarn:res:start yarn:dev"
+  },
+  "devDependencies": {
+    "@dylanirlbeck/tailwind-ppx": "^0.8.4",
+    "@rescript/react": "0.10.3",
+    "autoprefixer": "10.2.6",
+    "concurrently": "^6.2.0",
+    "cssnano": "5.0.6",
+    "gentype": "4.1.0",
+    "next-transpile-modules": "8.0.0",
+    "postcss": "8.3.5",
+    "postcss-cli": "8.3.1",
+    "rescript": "9.1.4",
+    "tailwindcss": "2.2.0"
+  }
+}
